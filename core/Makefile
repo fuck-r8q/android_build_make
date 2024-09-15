@@ -7879,7 +7879,7 @@ haiku-presubmit: $(SOONG_PRESUBMIT_FUZZ_PACKAGING_ARCH_MODULES) $(ALL_PRESUBMIT_
 $(call dist-for-goals,haiku-presubmit,$(SOONG_PRESUBMIT_FUZZ_PACKAGING_ARCH_MODULES))
 
 # -----------------------------------------------------------------
-# Extract platform fonts used in Layoutlib
+# Extract additional data files used in Layoutlib
 include $(BUILD_SYSTEM)/layoutlib_data.mk
 
 # -----------------------------------------------------------------
@@ -7905,9 +7905,10 @@ PACKED_IMAGE_ARCHIVE_TARGET := $(PACK_IMAGE_TARGET).gz
 $(PACKED_IMAGE_ARCHIVE_TARGET): $(PACK_IMAGE_TARGET) | $(GZIP)
 	$(GZIP) -fk $(PACK_IMAGE_TARGET)
 
-droidcore-unbundled: $(PACKED_IMAGE_ARCHIVE_TARGET)
-
 $(call dist-for-goals,dist_files,$(PACKED_IMAGE_ARCHIVE_TARGET))
+
+.PHONY: pack-image
+pack-image: $(PACK_IMAGE_TARGET)
 
 endif # PACK_DESKTOP_FILESYSTEM_IMAGES
 
@@ -7924,9 +7925,10 @@ PACKED_RECOVERY_IMAGE_ARCHIVE_TARGET := $(PACK_RECOVERY_IMAGE_TARGET).gz
 $(PACKED_RECOVERY_IMAGE_ARCHIVE_TARGET): $(PACK_RECOVERY_IMAGE_TARGET) | $(GZIP)
 	$(GZIP) -fk $(PACK_RECOVERY_IMAGE_TARGET)
 
-droidcore-unbundled: $(PACKED_RECOVERY_IMAGE_ARCHIVE_TARGET)
-
 $(call dist-for-goals,dist_files,$(PACKED_RECOVERY_IMAGE_ARCHIVE_TARGET))
+
+.PHONY: pack-recovery-image
+pack-recovery-image: $(PACK_RECOVERY_IMAGE_TARGET)
 
 endif # PACK_DESKTOP_RECOVERY_IMAGE
 
