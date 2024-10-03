@@ -306,12 +306,10 @@ $(call add_json_bool, BuildBrokenClangAsFlags,            $(filter true,$(BUILD_
 $(call add_json_bool, BuildBrokenClangCFlags,             $(filter true,$(BUILD_BROKEN_CLANG_CFLAGS)))
 # Use the value of GENRULE_SANDBOXING if set, otherwise use the inverse of BUILD_BROKEN_GENRULE_SANDBOXING
 $(call add_json_bool, GenruleSandboxing,                   $(if $(GENRULE_SANDBOXING),$(filter true,$(GENRULE_SANDBOXING)),$(if $(filter true,$(BUILD_BROKEN_GENRULE_SANDBOXING)),,true)))
-$(call add_json_bool, BuildBrokenEnforceSyspropOwner,     $(filter true,$(BUILD_BROKEN_ENFORCE_SYSPROP_OWNER)))
-$(call add_json_bool, BuildBrokenTrebleSyspropNeverallow, $(filter true,$(BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW)))
-# KEYSTONE - b/274610335 - Temporarily allow QCom's unconverted python2 scripts
-$(call add_json_bool, BuildBrokenUsesSoongPython2Modules, true)
-$(call add_json_bool, BuildBrokenVendorPropertyNamespace, $(filter true,$(BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE)))
+$(call add_json_bool, BuildBrokenEnforceSyspropOwner,      $(filter true,$(BUILD_BROKEN_ENFORCE_SYSPROP_OWNER)))
+$(call add_json_bool, BuildBrokenTrebleSyspropNeverallow,  $(filter true,$(BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW)))
 
+$(call add_json_bool, BuildBrokenVendorPropertyNamespace,  $(filter true,$(BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE)))
 $(call add_json_bool, BuildBrokenIncorrectPartitionImages, $(filter true,$(BUILD_BROKEN_INCORRECT_PARTITION_IMAGES)))
 $(call add_json_list, BuildBrokenInputDirModules,          $(BUILD_BROKEN_INPUT_DIR_MODULES))
 $(call add_json_bool, BuildBrokenDontCheckSystemSdk,       $(filter true,$(BUILD_BROKEN_DONT_CHECK_SYSTEMSDK)))
