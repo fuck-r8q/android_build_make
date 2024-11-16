@@ -211,6 +211,7 @@ PRODUCT_PACKAGES += \
     libvulkan \
     libwilhelm \
     linker \
+    llndk_libs \
     lmkd \
     LocalTransport \
     locksettings \
