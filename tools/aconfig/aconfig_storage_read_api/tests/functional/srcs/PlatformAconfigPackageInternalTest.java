@@ -45,7 +45,7 @@ public class PlatformAconfigPackageInternalTest {
     private static final Set<String> PLATFORM_CONTAINERS = Set.of("system", "vendor", "product");
 
     @Test
-    public void testAconfigPackageInternal_load() throws IOException {
+    public void testPlatformAconfigPackageInternal_load() throws IOException {
         List<parsed_flag> flags = DeviceProtos.loadAndParseFlagProtos();
         Map<String, PlatformAconfigPackageInternal> readerMap = new HashMap<>();
         StorageFileProvider fp = StorageFileProvider.getDefaultProvider();
@@ -82,7 +82,7 @@ public class PlatformAconfigPackageInternalTest {
     }
 
     @Test
-    public void testAconfigPackage_load_withError() throws IOException {
+    public void testPlatformAconfigPackage_load_withError() throws IOException {
         // container not found fake_container
         AconfigStorageException e =
                 assertThrows(
