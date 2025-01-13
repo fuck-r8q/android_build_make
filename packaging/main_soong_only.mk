@@ -31,10 +31,16 @@ include build/make/common/strings.mk
 droid: droid_targets
 
 .PHONY: droid_targets
-droid_targets: dist_files
+droid_targets: droidcore dist_files
 
 .PHONY: dist_files
 dist_files:
+
+.PHONY: droidcore
+droidcore: droidcore-unbundled
+
+.PHONY: droidcore-unbundled
+droidcore-unbundled:
 
 $(info [2/4] including distdir.mk ...)
 
@@ -45,7 +51,6 @@ $(info [3/4] defining phony modules ...)
 include $(OUT_DIR)/soong/soong_phony_targets.mk
 
 goals := $(sort $(foreach pair,$(DIST_GOAL_OUTPUT_PAIRS),$(call word-colon,1,$(pair))))
-$(warning goals: $(goals))
 $(foreach goal,$(goals), \
   $(eval .PHONY: $$(goal)) \
   $(eval $$(goal):) \
