@@ -384,7 +384,6 @@ $(call add_json_list, ProductPropFiles, $(TARGET_PRODUCT_PROP))
 $(call add_json_list, OdmPropFiles, $(TARGET_ODM_PROP))
 $(call add_json_list, VendorPropFiles, $(TARGET_VENDOR_PROP))
 
-$(call add_json_str, ExtraAllowedDepsTxt, $(EXTRA_ALLOWED_DEPS_TXT))
 $(call add_json_bool, DisableSoongConfigTrace, $(filter true,$(DISABLE_SOONG_CONFIG_TRACE)))
 
 # Do not set ArtTargetIncludeDebugBuild into any value if PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD is not set,
@@ -575,6 +574,11 @@ $(call add_json_map, PartitionVarsForSoongMigrationOnlyDoNotUse)
   $(call end_json_map)
 
   $(call add_json_str, PrebuiltBootloader, $(BOARD_PREBUILT_BOOTLOADER))
+
+  # Used to generate userdata partition
+  $(call add_json_str, ProductFsCasefold, $(PRODUCT_FS_CASEFOLD))
+  $(call add_json_str, ProductQuotaProjid, $(PRODUCT_QUOTA_PROJID))
+  $(call add_json_str, ProductFsCompression, $(PRODUCT_FS_COMPRESSION))
 
 $(call end_json_map)
 
