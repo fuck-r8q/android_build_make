@@ -70,7 +70,6 @@ MODULE_BUILD_FROM_SOURCE ?= true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_release.mk)
 endif
 
-PRODUCT_USE_SOONG_NOTICE_XML := true
 
 PRODUCT_NAME := aosp_x86_64
 PRODUCT_DEVICE := generic_x86_64
