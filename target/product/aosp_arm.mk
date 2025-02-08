@@ -62,12 +62,8 @@ MODULE_BUILD_FROM_SOURCE ?= true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_release.mk)
 endif
 
-PRODUCT_USE_SOONG_NOTICE_XML := true
 
 PRODUCT_NAME := aosp_arm
 PRODUCT_DEVICE := generic
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on ARM32
-
-PRODUCT_SOONG_DEFINED_SYSTEM_IMAGE := aosp_system_image
-USE_SOONG_DEFINED_SYSTEM_IMAGE := true
