@@ -42,6 +42,7 @@ PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.compression.xor.enabled?=true
 # device's .mk file improve performance for low mem devices.
 #
 # PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.read_ahead_size=16
+# warning: enabling o_direct on devices with low CMA could lead to failures
 # PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.o_direct.enabled=true
 # PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.merge_thread_priority=19
 # PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.worker_thread_priority=0
