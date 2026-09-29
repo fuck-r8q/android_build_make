@@ -23,8 +23,10 @@ PRODUCT_VENDOR_PROPERTIES := \
     keyguard.no_require_sim?=true \
     ro.com.android.dataroaming?=true
 
-PRODUCT_COPY_FILES := \
+ifneq ($(TARGET_IS_COMPUTE),true)
+PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+endif
 
 ifeq ($(AOSPA_BUILD),)
 PRODUCT_COPY_FILES += \
