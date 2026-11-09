@@ -1052,7 +1052,6 @@ $(INSTALLED_DTBIMAGE_TARGET) : $(sort $(wildcard $(BOARD_PREBUILT_DTBIMAGE_DIR)/
 	cat $^ > $@
 endif
 endif
-endif
 
 
 # -----------------------------------------------------------------
