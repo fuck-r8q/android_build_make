@@ -1010,6 +1010,12 @@ ifeq ($(PRODUCT_BUILD_GENERIC_OTA_PACKAGE),true)
   endif
 endif
 
+ifdef TARGET_PREBUILT_DTB
+  ifneq ($(BOARD_INCLUDE_DTB_IN_BOOTIMG),true)
+    $(error TARGET_PREBUILT_DTB with 'BOARD_INCLUDE_DTB_IN_BOOTIMG != true' is not supported)
+  endif
+endif
+
 ifdef BOARD_PREBUILT_DTBIMAGE_DIR
   ifneq ($(BOARD_INCLUDE_DTB_IN_BOOTIMG),true)
     $(error BOARD_PREBUILT_DTBIMAGE_DIR with 'BOARD_INCLUDE_DTB_IN_BOOTIMG != true' is not supported)
